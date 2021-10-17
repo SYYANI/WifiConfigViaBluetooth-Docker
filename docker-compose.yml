@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+    debian-wifioverbt:
+        restart: unless-stopped
+        privileged: true
+        devices:
+            - "/dev/wlan0:/dev/wlan0"
+        network_mode: host
+        volumes:
+            - './service:/etc/systemd/system/dbus-org.bluez.service:ro'
+            - './start.sh:/start.sh'
+        image: 'gtntdev/debian-wifioverbt:1.0'
