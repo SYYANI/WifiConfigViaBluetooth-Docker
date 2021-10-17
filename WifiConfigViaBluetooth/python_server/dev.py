@@ -121,7 +121,7 @@ def handle_client(client_sock) :
         return
 
     if rec_str["command"] == "BLUE_MESS" :
-        client_sock.send(f"UUID: {_uuid.encode('utf-8')} "+f"Mac: {_mac.encode('utf-8')}\n"+ "|")
+        client_sock.send(f"UUID: {_uuid.encode('utf-8')} "+f"Mac: {_mac.encode('utf-8')}#"+ "|")
         return
     return
 
