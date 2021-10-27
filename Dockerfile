@@ -13,7 +13,7 @@ RUN apt-get update \
 && pip3 install python-wifi \
 && pip3 install pybluez \
 && apt-get -y install wireless-tools \
-&& apt-get -y install net-tools \
+&& apt-get -y install net-tools 
 
 COPY WifiConfigViaBluetooth WifiConfigViaBluetooth
 COPY wpa.conf /etc/wpa_supplicant/wpa_supplicant.conf
