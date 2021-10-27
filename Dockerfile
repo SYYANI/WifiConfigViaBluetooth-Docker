@@ -15,7 +15,7 @@ RUN apt-get update \
 && apt-get -y install wireless-tools \
 && apt-get -y install net-tools \
 
-COPY WifiConfigViaBluetooth /WifiConfigViaBluetooth
+COPY WifiConfigViaBluetooth WifiConfigViaBluetooth
 COPY wpa.conf /etc/wpa_supplicant/wpa_supplicant.conf
 COPY by-uuid by-uuid
 
