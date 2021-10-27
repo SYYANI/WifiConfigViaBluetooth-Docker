@@ -9,4 +9,4 @@ services:
         volumes:
             - './service:/etc/systemd/system/dbus-org.bluez.service:ro'
             - './start.sh:/start.sh'
-        image: 'gtntdev/debian-wifioverbt:1.0'
+        image: 'aicare/wifioverbt:1.0'
