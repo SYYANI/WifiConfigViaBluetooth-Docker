@@ -1,9 +1,5 @@
 FROM debian:buster
 
-COPY WifiConfigViaBluetooth /WifiConfigViaBluetooth
-COPY wpa.conf /etc/wpa_supplicant/wpa_supplicant.conf
-COPY by-uuid by-uuid
-
 ADD sources.list /etc/apt
 RUN apt-get update \
 && apt-get dist-upgrade -y \
@@ -18,7 +14,12 @@ RUN apt-get update \
 && pip3 install pybluez \
 && apt-get -y install wireless-tools \
 && apt-get -y install net-tools \
-&& apt-get -y install procps \
+
+COPY WifiConfigViaBluetooth /WifiConfigViaBluetooth
+COPY wpa.conf /etc/wpa_supplicant/wpa_supplicant.conf
+COPY by-uuid by-uuid
+
+RUN apt-get -y install procps \
 && apt-get install -y strace
 
 #main script PID 1
