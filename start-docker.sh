@@ -16,8 +16,19 @@ sudo systemctl restart dhcpcd &&
 sudo systemctl disable wpa_supplicant &&
 sudo systemctl stop wpa_supplicant &&
 rfkill unblock all &&
-cd ~/Desktop &&
+cd /home &&
 git clone https://gitee.com/syyan/aicare.git &&
 cd WifiConfigViaBluetooth-Docker &&
 docker build -t aicare/wifioverbt:1.0 . &&
-docker-compose up -d
+
+#docker-compose up -d
+
+docker run -d \
+  --restart=always \
+  --name=aicare/wifi_over_bt \
+  --volume "/home/aicare/service:/etc/systemd/system/dbus-org.bluez.service:ro" \
+  --volume "/home/aicare/start.sh:/start.sh" \
+  --device "/dev/wlan0:/dev/wlan0" \
+  --net=host \
+  --privileged \
+  registry.cn-shanghai.aliyuncs.com/aicare/softether

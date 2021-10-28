@@ -3,6 +3,7 @@ services:
     wifioverbt:
         restart: unless-stopped
         privileged: true
+        container_name: aicare/wifi_over_bt 
         devices:
             - "/dev/wlan0:/dev/wlan0"
         network_mode: host
