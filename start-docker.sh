@@ -17,7 +17,7 @@ sudo systemctl disable wpa_supplicant &&
 sudo systemctl stop wpa_supplicant &&
 rfkill unblock all &&
 cd ~/Desktop &&
-git clone https://gitee.com/syyan/WifiConfigViaBluetooth-Docker.git &&
+git clone https://gitee.com/syyan/aicare.git &&
 cd WifiConfigViaBluetooth-Docker &&
 docker build -t aicare/wifioverbt:1.0 . &&
 docker-compose up -d
